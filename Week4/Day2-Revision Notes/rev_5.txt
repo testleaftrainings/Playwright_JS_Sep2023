@@ -1,0 +1,24 @@
+Using promise based approach
+
+//trying to upload a file
+
+//based on an event 
+
+// filechooser event
+
+
+1) create a promise and telling that a filler chooser event will be recieved by you
+
+const fileChooserPromise = page.waitForEvent("filechooser")
+
+
+2) perform that operation which will trigger the filechooser event
+
+await page.locator("#drag-drop-upload").click()
+
+3) const fileChooser = await fileChooserPromise //it will give me the object of filechooser
+
+4) fileChooser.setFiles(filePath)
+
+
+

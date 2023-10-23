@@ -1,0 +1,101 @@
+1) playwright locators for easy accessibility
+
+
+page.locator("tag[attribute='attributevalue']")
+
+page.getByPlaceholder("name@example1.com",{exact:True})//
+
+
+a) by placeholder
+
+e.g <input type="email" placeholder="name@example1.comaasdadadasd" />
+e.g <input type="email" placeholder="name@example1.com" />
+
+
+=> you can use
+
+await page.getByPlaceholder("name@example.com")
+
+
+b) by text
+
+e.g <span>Welcome, John</span>
+
+page.locator("button").filter({hasText:"click"})
+=> you can use
+
+await page.getByText("Click",{exact:true})
+
+
+
+c) by label
+
+e.g <label>Password <input type="password" /></label>
+
+=> you can use
+
+await page.getByLabel("Password",{exact:True})
+
+
+
+
+
+
+//Storage state
+local storage -> cookies, cache, indexdb etc
+
+//by pass the login
+
+-> create the test case to login
+-> page.context().storateState("pathofthefile")
+//save my context storage stage to this file
+
+
+//by pass login
+
+await browser.newContext({storageState:"pathofthefile"})
+
+//by pass the login
+
+test.use({storageState:"pathofthefile"})
+
+//overriding the text fixture's context
+
+test -> 
+	setup
+		context{storageState
+			test steps
+		}
+	teardown
+
+
+//test suite structure
+
+test.describe("Incident creation",async()=>{
+	test.describe.configure({mode:serial})
+	//sequential + dependend on each other
+	//edit the incident
+
+	let incidentKey;
+
+	test(`TC001 - 1`,async()=>{
+		//create the incident 
+		incidentKey = ""
+	})
+	test(`TC002 - 1`,async()=>{
+
+		//edit the incident
+	})
+})
+
+by defualt in playwright config . fullyparallel: true
+
+all the files and all test cases inside it will run in parallel
+
+
+
+
+
+
+
+

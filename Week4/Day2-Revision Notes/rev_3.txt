@@ -1,0 +1,57 @@
+1) user actions on 
+ 
+ locator
+
+
+2)locator is page (HTML node)
+
+
+3) locator inside iframe
+
+page.locator("button[aria-label='Chat window']").click()
+
+//way to find the iframe
+
+
+<HTML NOdes>
+
+a -? hyeperlink
+table -> table
+h1 -> headlines
+
+
+iframe -> (embed a new HTML inside it)
+
+FrameLocator = page.framelocator("")
+
+# locator 
+
+locator chaining =>
+page.locator("table").locator("tr[class='login']")
+
+
+page.framelocator("#shopifyChat").locator("")
+
+
+//
+HTML (nested - iframes)
+ <iframe 1>
+ 	<HTML>
+ 		<iframe 2
+ 	<HTML>
+ <iframe>
+
+await page.framelocator("#frame1").framelocator("#framelocator")
+
+
+
+
+const chatContainerIframe = page.framelocator("#shopifyChat")
+
+//click chat button
+
+await chatContainerIframe.locator("button[data-type='toggle-button']").click()
+
+
+
+

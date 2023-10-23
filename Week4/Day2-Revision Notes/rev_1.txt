@@ -1,0 +1,249 @@
+Revision
+--------
+
+Playwright key terminologies
+
+Browser -> browser instance
+
+import {chrome} from "@playwright/test"
+const browser = await chromium.launch()
+
+BrowserContext -> Isolated incognito
+
+Page -> (tab) -> load url/ all other user action on website
+const browser = await chromium.launch()
+
+const browserContext = await browser.newContext()
+
+const page = await browser.newPage()
+
+
+----------------------
+
+
+await chromium.launch() => Promise<Browser>
+
+----------------------
+
+
+Page  -> goto(url) => url: string => await page.goto("https://")
+
+DOM -> all HTML elements 
+clicking on a button => DOM Tree
+
+buttonElement.click()
+
+//to find the location of an element in the dom
+
+Locator = page.locator("") //string as the argument
+
+//how do you find the create the path for it
+based on css/xpath/text
+
+//user action
+
+click() //
+fill(string) //input text box
+clear() //input  value = ""
+
+- input box for email
+
+// actionability checks
+
+before performing any operation/user action
+
+list of checks which playwright do on an element
+
+checks are relative to what action 
+
+click -> 
+type -> 
+fill ->
+
+
+default timeout ->
+until this timeout is over
+
+-> polls (Retrying at a regular interval until the timeout is reached)
+
+-> override the timeout based on slow elements/sloow action
+
+await page.locator("").click({timeout:10000})
+
+---------------------------------------------------
+
+-> dropdown (select based dropdown)
+
+<select class=dropdown >
+	<options> ujjain
+
+-> selectOptions()
+
+//steps to do that is
+
+find the locator of the select dropdown
+
+page.locator(.dropdown).selectOptions()
+//value 
+//value, label or index
+
+-> cases where the list of elements is coming and u need to find 1 element out of it
+
+<div class=dropdown >
+	<li  id=city_ujjain> ujjain
+	<li id=city_delhi> Delhi
+	<li> Madurai
+
+
+Step -> find find the locator which is matching all the list elements
+
+page.locator(.li)
+
+Step -> find the attribute/text which makes your element unique
+
+page.locator(.li).filter({hasText:"Ujjain"}) //
+
+page.locator(.li).filter({has:page.locator("li[id='Ujjain']")}) //
+
+//index based 
+static list
+
+table header  -> 1|2|3|4
+
+page.locator("").nth(2) //it starts from 0
+
+///////////////////////////////////
+
+Different components to handle
+
+a) alert /prompt/ confirm => dialogue boxes
+
+1) create an event handler
+2) pefrom the action which triggers the event
+
+page.on("dialogue",async(dialogue)=>{
+	dialogue.accept()
+	dialogue.reject()
+})
+
+
+// alert is inspectable , it is sweet terminology
+
+
+b) new window/tab/page
+
+1) create a promise that a new page event will be recieved
+2) perform the operation which opens the new tab/page
+3) wait for the promise to resolve
+4) switch focus to the new page/tab
+
+
+const newPagePromise = page.waitForEvent("page") 
+
+await page.locator("#id").click()
+
+const newPage:Page = await newPagePromise
+
+await newPage.bringToFront()
+
+await newPage.locator("").click()
+
+c) File upload 
+
+	a) input type=file 
+	b) page.locator("").setInputFiles("filepath")
+
+ //do not have access to the input element
+
+ const fielchooserPromise = page.waitForEvent("filechooser")
+ await page.locaotr.click()
+ const fileChooser = await filechooserpromise
+
+ filechooser.setFiles("string"|)
+
+
+d) file download
+
+//wait for event (download)
+
+
+// Iframe
+
+- embed a new html inside the html
+
+DOCtype!
+div
+
+	<iframe>
+		 DOCTYPE
+		 	div
+
+
+- page.framelocator("").locator("div").click()
+
+locator - give the location of web element
+framelocator - give the location of iframe
+
+
+
+//Shadow root
+
+#shadowroot (open)
+	<div>
+		<div>
+
+page.locator("")
+
+
+//////////////////////////////////
+
+Assertions , expect
+
+expect(actualValue,"expecting ${actualValue} to be ${expectedValue}").toBe(expectedValue)
+
+
+
+expect is going to retry for a default timeout until the condition is met
+//expect(locator).toBeVisible({timeout:10000})
+//expect(page).toHaveUrl()
+
+..verify the locator attribute value contains the text 
+
+const actualString = page.locaotr().getAttribute("value")
+
+const expString 
+
+expect(actualString).toBe(expString)
+
+
+//hard code wait in your playwrigt test script
+page.waitForTimeout() //thread.sleep
+
+
+///////////////////////////////////////////////////////////////////
+
+keyboard is present in Page
+
+await page.keyboard.press("Enter")
+
+//case , select all the text present in the text box
+
+await page.locator("textbox").focus()
+await page.keyboard.press("Meta+A") //pressing two keys simultaneously
+
+//Ctrl -> windows
+//Cmd
+
+//platform agnostic key -> Meta
+
+//windows => ctrl
+//mac => command
+
+
+
+
+
+
+
+
+

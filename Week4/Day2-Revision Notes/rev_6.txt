@@ -1,0 +1,124 @@
+Revision
+-----------
+
+1) find an element in DOM node
+
+Locator = page.locator("string") //selector string
+//which strategy to locate element
+
+//await locator.click() .
+await locator. fill() //return promise
+
+//actionability checks
+
+click -> element is attached to DOM , visible , stable, recieve events, 
+enabled (disabled) //disabled 
+
+default timeout -> config by default value is 5 sec
+
+polling mechanism
+
+0.5 polling seconds
+
+timeout
+
+await page.locator("").click({timeout:10000})
+
+//
+
+
+List of elements
+
+more than 1 element 
+
+find your sepcific element
+
+index based approach
+
+- page.locator("") //return you an array of matching locator object
+- page.locator("").nth(0) //starts from 0
+
+
+filter mechanism
+
+text can be one of them
+
+//1 way by text
+page.locator("").filter({hasText:""})
+
+
+//2nd way is using another descendant locator
+
+page.locator("").filter({has:page.locaotr("")})
+
+
+-------------------------------
+
+
+event based mechanism
+
+
+eventhandler //approach
+
+dialogue
+	- confirm
+	- prompt
+	- alert
+
+event "dialogue"
+
+- can be inspected in UI
+- by default alerts/dialogues
+1) write an event handler for it
+
+//event handler approach
+page.on("dialogue",()=>{
+	dialogue.accept("")
+	dialogue.dismiss("")
+})
+
+//perform the operation which triggers an event
+page.click("show")
+
+
+
+2) windows // a new page/tab opened in your browser 
+
+context
+
+-page1  => page2
+
+
+ a) we will promise that an event is going to happen , "page"
+
+ const newPagePromise = context.waitForEvent("page") //creates a promise
+
+ b) we will perform the action which triggers that event
+
+ page.locator().click()
+
+ c) wait for the promsie the resolve
+
+  const newPage = await newPagePromise
+
+ d) get the resolved value into a variable , which will be a new object of page
+
+ e) switch focus of your action to the new page
+
+newPage.bringToFront()
+
+ f) checkbox 
+
+ HTML
+
+ page.locator("").check()
+
+ <input type="checkbox">
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+//file download
+
+//here we are going to use same approach of promise
+
+event name is "download"
+
+
+1) create a promise that you will get the event download
+
+const downloadPromise = page.waitForEvent("download")
+
+2) perform the operation which triggers the download event
+
+page.locator("").click()
+
+3) wait for the promise to resolve
+
+  const download =   await downloadPromise
+
+4) get the object of download
+
+5) any operation
+download.saveAs("wheretosave",download.suggestedFileName())
+
+
+
+prateek.png
+
+content-deposition => filename
+
+filename
+
+

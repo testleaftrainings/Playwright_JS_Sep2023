@@ -1,0 +1,34 @@
+Scenario 1: you have access to input element in DOM which opens 
+the file chooser window
+
+
+1) find the locator
+2) use the locator object to set the file path
+
+locator().setInputFiles("img1.png")
+
+//mulitple file 
+
+locator().setInputFiles(["img1.png", "img2.png"])
+
+// 
+
+//restriction based on how do you deine a path on diffeernet os
+//
+/
+
+/
+
+//
+
+path in node.js
+
+playwright/images/img1
+
+playwright/images/img1 = path.join("playwright","images","img1")
+
+
+1) __dirname => current directory path of the file
+
+
+input type=file value="filepath" 

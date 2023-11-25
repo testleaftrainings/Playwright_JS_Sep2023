@@ -1,0 +1,71 @@
+Goal: Attend Playwright interviews
+
+What you should have?
+1. Resume / LinkedIn profile
+2. Covering Letter
+3. Apply jobs
+
+Resume Preparation tips:
+------------------------
+1. Build the content first -> own content
+2. Apply the content to a specific template (novoresume.com)
+3. Resume and LinkedIn profile should look alike
+4. Validate the resume with ATS (Applicant tracking system) scanner
+   (resumeworded.com)
+   
+Resume Sections:
+-----------------
+1. About yourself: 2 liner !!
+2. Experience:  Company|Designation|Timeline   
+3. Roles and Responsibilities
+4. Projects
+		Desc: 2 liner
+		Accomplishements to make project successful
+		2-3 years for 1 project
+5. Certifications
+6. Skills
+		Manual Teting
+		Agile (Scrum)
+		SQL
+		Java
+		JavaScript
+		Selenium WebDriver
+		Playwright
+		TestNG
+		Cucumber
+		Framework (Hybrid)
+		Rest API
+		RestAssured
+		Postman
+		Jenkins
+7. Education Detail
+8. Awards & Contribution		
+		
+		
+HR Feedbacks:
+1. At least 60% of the resumes don't have proper subject
+2. At least 70-75% resumes don't have cover letter
+3. Many of the resumes do not match with their skill set
+4. Notice period -> immediate or 30 days
+
+https://novoresume.com/career-blog/cover-letter-examples
+
+LinkedIn Job Search Strategy:
+1. Search using boolean keywords (OR, AND)
+2. Search by Experience
+3. Search by Recent (day/week)
+4. Apply (EasyApply | Apply in portal)
+
+Search Jobs through Posts:
+1. Search using boolean keywords
+2. Sort by the latest
+3. Search by Recent (day/week)
+4. Look for people how post jobs ( https://www.linkedin.com/in/sriramku2 )
+
+
+Your Promises:
+--------------
+1. create a resume by Sunday (Night)
+2. Start applying the jobs from Sunday - Night
+
+
